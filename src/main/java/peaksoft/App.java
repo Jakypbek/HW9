@@ -8,7 +8,17 @@ public class App {
         ApplicationContext applicationContext =
                 new AnnotationConfigApplicationContext(AppConfig.class);
         HelloWorld bean =
-                (HelloWorld) applicationContext.getBean("helloworld");
+                 applicationContext.getBean("helloworld", HelloWorld.class);
         System.out.println(bean.getMessage());
+
+        Cat cat = applicationContext.getBean("cat", Cat.class);
+
+        System.out.println(cat.getName());
+
+        // boolean b = bean == cat; does not work, but should.
+
+        boolean a = bean.equals(cat);
+
+        System.out.println("is equal " + a);
     }
 }

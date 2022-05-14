@@ -2,6 +2,7 @@ package peaksoft;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 @Configuration
 public class AppConfig {
@@ -11,4 +12,14 @@ public class AppConfig {
         helloWorld.setMessage("Hello World!");
         return helloWorld;
     }
+
+    @Bean(name = "cat")
+    public Cat getCat() {
+        Cat cat = new Cat();
+        cat.setName("Misha");
+        return cat;
+    }
+
+
+
 }
